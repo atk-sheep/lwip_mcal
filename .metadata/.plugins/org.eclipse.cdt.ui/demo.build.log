@@ -1,0 +1,64 @@
+22:28:35 **** Incremental Build of configuration Debug for project demo ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F767xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -I../LWIP/App -I../LWIP/Target -I../Middlewares/Third_Party/LwIP/src/include -I../Middlewares/Third_Party/LwIP/system -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Drivers/BSP/Components/lan8742 -I../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I../Middlewares/Third_Party/LwIP/src/include/lwip -I../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I../Middlewares/Third_Party/LwIP/src/include/netif -I../Middlewares/Third_Party/LwIP/src/include/compat/posix -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/net -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/sys -I../Middlewares/Third_Party/LwIP/src/include/compat/stdc -I../Middlewares/Third_Party/LwIP/system/arch -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+../Core/Src/freertos.c: In function 'buildframe':
+../Core/Src/freertos.c:319:29: warning: missing braces around initializer [-Wmissing-braces]
+  319 |   struct eth_addr dst_mac = {0xFF,  0xFF,  0xFF,  0xFF,  0xFF,  0xFF};  //  å¹¿æ’­åœ°å?€
+      |                             ^
+      |                              {                                      }
+../Core/Src/freertos.c:320:29: warning: missing braces around initializer [-Wmissing-braces]
+  320 |   struct eth_addr src_mac = {arp_packet.sender_mac[0],  arp_packet.sender_mac[1],  arp_packet.sender_mac[2],
+      |                             ^
+      |                              {
+  321 |                               arp_packet.sender_mac[3],  arp_packet.sender_mac[4],  arp_packet.sender_mac[5]};
+      |                                                                                                             }
+../Core/Src/freertos.c: In function 'buildframe_NULL':
+../Core/Src/freertos.c:342:29: warning: missing braces around initializer [-Wmissing-braces]
+  342 |   struct eth_addr dst_mac = {0xFF,  0xFF,  0xFF,  0xFF,  0xFF,  0xFF};  //  å¹¿æ’­åœ°å?€
+      |                             ^
+      |                              {                                      }
+../Core/Src/freertos.c:343:29: warning: missing braces around initializer [-Wmissing-braces]
+  343 |   struct eth_addr src_mac = {arp_packet.sender_mac[0],  arp_packet.sender_mac[1],  arp_packet.sender_mac[2],
+      |                             ^
+      |                              {
+  344 |                               arp_packet.sender_mac[3],  arp_packet.sender_mac[4],  arp_packet.sender_mac[5]};
+      |                                                                                                             }
+../Core/Src/freertos.c: In function 'buildframe_reply':
+../Core/Src/freertos.c:365:29: warning: missing braces around initializer [-Wmissing-braces]
+  365 |   struct eth_addr dst_mac = {arp_packet.target_mac[0],  arp_packet.target_mac[1],  arp_packet.target_mac[2],
+      |                             ^
+      |                              {
+  366 |                               arp_packet.target_mac[3],  arp_packet.target_mac[4],  arp_packet.target_mac[5]};
+      |                                                                                                             }
+../Core/Src/freertos.c:369:29: warning: missing braces around initializer [-Wmissing-braces]
+  369 |   struct eth_addr src_mac = {arp_packet.sender_mac[0],  arp_packet.sender_mac[1],  arp_packet.sender_mac[2],
+      |                             ^
+      |                              {
+  370 |                               arp_packet.sender_mac[3],  arp_packet.sender_mac[4],  arp_packet.sender_mac[5]};
+      |                                                                                                             }
+../Core/Src/freertos.c: In function 'StartTask03':
+../Core/Src/freertos.c:605:15: warning: unused variable 'flag' [-Wunused-variable]
+  605 |   static bool flag = true;
+      |               ^~~~
+At top level:
+../Core/Src/freertos.c:605:15: warning: 'flag' defined but not used [-Wunused-variable]
+arm-none-eabi-gcc -o "demo.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\my_workspace\stm32_ws\lwip_mcal\demo\STM32F767IGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="demo.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: demo.elf
+ 
+arm-none-eabi-size  demo.elf 
+arm-none-eabi-objdump -h -S demo.elf  > "demo.list"
+arm-none-eabi-objcopy  -O ihex demo.elf  "demo.hex"
+arm-none-eabi-objcopy  -O binary demo.elf  "demo.bin"
+   text	   data	    bss	    dec	    hex	filename
+ 107152	    840	 160816	 268808	  41a08	demo.elf
+Finished building: default.size.stdout
+ 
+Finished building: demo.hex
+Finished building: demo.bin
+ 
+ 
+Finished building: demo.list
+ 
+
+22:28:41 Build Finished. 0 errors, 8 warnings. (took 5s.469ms)
+

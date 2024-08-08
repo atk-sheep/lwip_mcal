@@ -1,0 +1,20 @@
+{
+    "files.associations": {
+        "dma.h": "c",
+        "usart.h": "c",
+        "stm32f7xx_hal.h": "c",
+        "stm32f7xx.h": "c",
+        "stm32f7xx_it.h": "c",
+        "iwdg.h": "c",
+        "main.h": "c",
+        "gpio.h": "c",
+        "spi.h": "c",
+        "stm32f7xx_hal_dma.h": "c",
+        "reprintf.h": "c",
+        "w25q256.h": "c",
+        "ip4_addr.h": "c",
+        "ip_addr.h": "c",
+        "sockets.h": "c",
+        "bpstruct.h": "c"
+    }
+}
